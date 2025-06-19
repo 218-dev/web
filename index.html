@@ -1,0 +1,638 @@
+‏<!DOCTYPE html>
+‏<html lang="ar" dir="rtl">
+‏<head>
+‏    <meta charset="UTF-8">
+‏    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+‏    <title>منصة الدفع الإلكتروني | طرق التحويل</title>
+‏    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+‏    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+‏    <style>
+‏        :root {
+‏            --primary: #2563eb;
+‏            --secondary: #1e40af;
+‏            --accent: #dc2626;
+‏            --light: #f8fafc;
+‏            --dark: #1e293b;
+‏            --gray: #64748b;
+‏            --radius: 12px;
+‏            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+‏            --transition: all 0.3s ease;
+        }
+        
+        * {
+‏            box-sizing: border-box;
+‏            margin: 0;
+‏            padding: 0;
+        }
+        
+‏        body {
+‏            font-family: 'Tajawal', sans-serif;
+‏            background-color: #f1f5f9;
+‏            color: var(--dark);
+‏            line-height: 1.8;
+‏            padding: 20px;
+        }
+        
+‏        .container {
+‏            max-width: 800px;
+‏            margin: 30px auto;
+‏            background: white;
+‏            border-radius: var(--radius);
+‏            box-shadow: var(--shadow);
+‏            overflow: hidden;
+        }
+        
+‏        header {
+‏            background: linear-gradient(135deg, var(--primary), var(--secondary));
+‏            color: white;
+‏            padding: 25px;
+‏            text-align: center;
+‏            position: relative;
+        }
+        
+‏        h1 {
+‏            font-size: 28px;
+‏            font-weight: 800;
+‏            margin-bottom: 10px;
+        }
+        
+‏        .header-description {
+‏            opacity: 0.9;
+‏            font-size: 16px;
+        }
+        
+‏        .video-container {
+‏            margin: 20px 0;
+‏            border-radius: var(--radius);
+‏            overflow: hidden;
+‏            box-shadow: var(--shadow);
+‏            position: relative;
+        }
+        
+‏        .video-container video {
+‏            width: 100%;
+‏            display: block;
+        }
+        
+‏        .video-overlay {
+‏            position: absolute;
+‏            top: 0;
+‏            left: 0;
+‏            right: 0;
+‏            bottom: 0;
+‏            display: flex;
+‏            align-items: center;
+‏            justify-content: center;
+‏            background: rgba(0,0,0,0.2);
+‏            opacity: 0;
+‏            transition: var(--transition);
+        }
+        
+‏        .video-overlay:hover {
+‏            opacity: 1;
+        }
+        
+‏        .play-btn {
+‏            background: rgba(255,255,255,0.8);
+‏            width: 60px;
+‏            height: 60px;
+‏            border-radius: 50%;
+‏            display: flex;
+‏            align-items: center;
+‏            justify-content: center;
+‏            cursor: pointer;
+‏            transition: var(--transition);
+        }
+        
+‏        .play-btn i {
+‏            color: var(--primary);
+‏            font-size: 24px;
+‏            margin-right: -3px;
+        }
+        
+‏        .play-btn:hover {
+‏            transform: scale(1.1);
+‏            background: white;
+        }
+        
+‏        .section {
+‏            padding: 25px;
+‏            border-bottom: 1px solid #e2e8f0;
+        }
+        
+‏        .section:last-child {
+‏            border-bottom: none;
+        }
+        
+‏        h2 {
+‏            color: var(--primary);
+‏            font-size: 22px;
+‏            margin-bottom: 20px;
+‏            display: flex;
+‏            align-items: center;
+‏            gap: 10px;
+        }
+        
+‏        .info-group {
+‏            margin-bottom: 20px;
+        }
+        
+‏        .info-label {
+‏            display: flex;
+‏            align-items: center;
+‏            gap: 8px;
+‏            color: var(--dark);
+‏            font-weight: 600;
+‏            margin-bottom: 8px;
+‏            font-size: 16px;
+        }
+        
+‏        .copy-box {
+‏            background: var(--light);
+‏            border: 1px solid #e2e8f0;
+‏            border-radius: var(--radius);
+‏            padding: 14px 50px 14px 20px;
+‏            position: relative;
+‏            font-family: 'Courier New', monospace;
+‏            word-break: break-all;
+‏            font-size: 16px;
+‏            margin: 10px 0;
+        }
+        
+‏        .copy-btn {
+‏            position: absolute;
+‏            left: 10px;
+‏            top: 50%;
+‏            transform: translateY(-50%);
+‏            background: var(--primary);
+‏            color: white;
+‏            border: none;
+‏            padding: 6px 12px;
+‏            border-radius: 6px;
+‏            cursor: pointer;
+‏            font-size: 13px;
+‏            transition: var(--transition);
+‏            display: flex;
+‏            align-items: center;
+‏            gap: 5px;
+        }
+        
+‏        .copy-btn:hover {
+‏            background: var(--secondary);
+        }
+        
+‏        .copy-btn i {
+‏            font-size: 12px;
+        }
+        
+‏        .wallet-address {
+‏            display: flex;
+‏            align-items: center;
+‏            gap: 10px;
+        }
+        
+‏        .wallet-icon {
+‏            color: var(--primary);
+‏            font-size: 20px;
+        }
+        
+‏        .form-group {
+‏            margin-bottom: 20px;
+        }
+        
+‏        label {
+‏            display: block;
+‏            margin-bottom: 8px;
+‏            font-weight: 600;
+‏            color: var(--dark);
+        }
+        
+‏        input {
+‏            width: 100%;
+‏            padding: 14px;
+‏            border: 1px solid #e2e8f0;
+‏            border-radius: var(--radius);
+‏            font-family: 'Tajawal', sans-serif;
+‏            font-size: 16px;
+‏            transition: var(--transition);
+        }
+        
+‏        input:focus {
+‏            outline: none;
+‏            border-color: var(--primary);
+‏            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+‏        button {
+‏            background: var(--primary);
+‏            color: white;
+‏            border: none;
+‏            padding: 14px;
+‏            border-radius: var(--radius);
+‏            cursor: pointer;
+‏            font-family: 'Tajawal', sans-serif;
+‏            font-weight: 600;
+‏            width: 100%;
+‏            transition: var(--transition);
+‏            font-size: 16px;
+‏            display: flex;
+‏            align-items: center;
+‏            justify-content: center;
+‏            gap: 8px;
+        }
+        
+‏        button:hover {
+‏            background: var(--secondary);
+        }
+        
+‏        .result {
+‏            display: none;
+‏            margin-top: 25px;
+‏            animation: fadeIn 0.3s ease;
+        }
+        
+‏        @keyframes fadeIn {
+‏            from { opacity: 0; transform: translateY(10px); }
+‏            to { opacity: 1; transform: translateY(0); }
+        }
+        
+‏        .note {
+‏            background: #fff7ed;
+‏            border-left: 4px solid #f97316;
+‏            padding: 14px;
+‏            border-radius: 0 var(--radius) var(--radius) 0;
+‏            margin: 15px 0;
+‏            font-size: 15px;
+        }
+        
+‏        .note.warning {
+‏            background: #fef2f2;
+‏            border-left-color: var(--accent);
+        }
+        
+‏        footer {
+‏            text-align: center;
+‏            padding: 25px;
+‏            color: var(--gray);
+‏            font-size: 15px;
+‏            border-top: 1px solid #e2e8f0;
+        }
+        
+‏        .dev-link {
+‏            color: var(--primary);
+‏            text-decoration: none;
+‏            font-weight: 600;
+‏            display: inline-flex;
+‏            align-items: center;
+‏            gap: 5px;
+        }
+        
+‏        .dev-link:hover {
+‏            text-decoration: underline;
+        }
+        
+‏        @media (max-width: 600px) {
+‏            body {
+‏                padding: 10px;
+            }
+            
+‏            .container {
+‏                margin: 15px auto;
+            }
+            
+‏            header {
+‏                padding: 20px 15px;
+            }
+            
+‏            h1 {
+‏                font-size: 24px;
+            }
+            
+‏            .section {
+‏                padding: 20px 15px;
+            }
+            
+‏            .copy-box {
+‏                padding: 12px 45px 12px 15px;
+‏                font-size: 15px;
+            }
+        }
+‏    </style>
+‏</head>
+‏<body>
+‏    <div class="container">
+‏        <header>
+‏            <h1><i class="fas fa-wallet"></i> منصة الدفع الإلكتروني</h1>
+‏            <p class="header-description">جميع طرق التحويل في مكان واحد</p>
+‏        </header>
+        
+        <!-- فيديو ترحيبي -->
+‏        <div class="section">
+‏            <div class="video-container">
+‏                <video poster="assets/video-poster.jpg" controls>
+‏                    <source src="assets/welcome-video.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو
+‏                </video>
+‏                <div class="video-overlay">
+‏                    <div class="play-btn">
+‏                        <i class="fas fa-play"></i>
+‏                    </div>
+‏                </div>
+‏            </div>
+            
+‏            <div class="note">
+‏                <i class="fas fa-info-circle"></i> المطور : @II99l9 | معرف البوت : @QJS_bot
+‏            </div>
+‏        </div>
+        
+        <!-- ليبيا للموبايل -->
+‏        <div class="section">
+‏            <h2><i class="fas fa-mobile-alt"></i> ليبيانا</h2>
+            
+‏            <div class="info-group">
+‏                <div class="info-label">
+‏                    <i class="fas fa-phone"></i> رقم الهاتف:
+‏                </div>
+‏                <div class="copy-box">
+                    0928102731
+‏                    <button class="copy-btn" onclick="copyText(this)"><i class="far fa-copy"></i> نسخ</button>
+‏                </div>
+‏            </div>
+            
+‏            <div class="note">
+‏                <i class="fas fa-info-circle"></i> الحد الأقصى للتحويل: 50 دينار ليبي (سيتم تحويل القيمة × 1000 تلقائيًا)
+‏            </div>
+            
+‏            <div class="form-group">
+‏                <label for="libyana-amount"><i class="fas fa-money-bill-wave"></i> المبلغ المراد تحويله (دينار ليبي)</label>
+‏                <input type="number" id="libyana-amount" placeholder="أدخل المبلغ من 1 إلى 50" max="50" min="1">
+‏            </div>
+            
+‏            <button onclick="generateLibyanaCode()"><i class="fas fa-qrcode"></i> إنشاء كود التحويل</button>
+            
+‏            <div id="libyana-result" class="result">
+‏                <div class="info-label" style="margin-top: 20px;">
+‏                    <i class="fas fa-code"></i> كود التحويل:
+‏                </div>
+‏                <div class="copy-box">
+‏                    <span id="libyana-code"></span>
+‏                    <button class="copy-btn" onclick="copyText(this)"><i class="far fa-copy"></i> نسخ</button>
+‏                </div>
+‏                <p style="color: var(--gray); margin-top: 8px; font-size: 14px;">
+‏                    <i class="fas fa-info-circle"></i> انسخ هذا الكود واطبعه في تطبيق الهاتف
+‏                </p>
+‏            </div>
+‏        </div>
+        
+        <!-- المدار -->
+‏        <div class="section">
+‏            <h2><i class="fas fa-sim-card"></i> المدار</h2>
+            
+‏            <div class="info-group">
+‏                <div class="info-label">
+‏                    <i class="fas fa-phone"></i> رقم الهاتف:
+‏                </div>
+‏                <div class="copy-box">
+                    0934765130
+‏                    <button class="copy-btn" onclick="copyText(this)"><i class="far fa-copy"></i> نسخ</button>
+‏                </div>
+‏            </div>
+            
+‏            <div class="note">
+‏                <i class="fas fa-info-circle"></i> الحد الأقصى للتحويل: 20 دينار ليبي (بدون تحويل القيمة)
+‏            </div>
+            
+‏            <div class="form-group">
+‏                <label for="almadar-amount"><i class="fas fa-money-bill-wave"></i> المبلغ المراد تحويله (دينار ليبي)</label>
+‏                <input type="number" id="almadar-amount" placeholder="أدخل المبلغ من 1 إلى 20" max="20" min="1">
+‏            </div>
+            
+‏            <button onclick="generateAlmadarCode()"><i class="fas fa-qrcode"></i> إنشاء كود التحويل</button>
+            
+‏            <div id="almadar-result" class="result">
+‏                <div class="info-label" style="margin-top: 20px;">
+‏                    <i class="fas fa-code"></i> كود التحويل:
+‏                </div>
+‏                <div class="copy-box">
+‏                    <span id="almadar-code"></span>
+‏                    <button class="copy-btn" onclick="copyText(this)"><i class="far fa-copy"></i> نسخ</button>
+‏                </div>
+‏                <p style="color: var(--gray); margin-top: 8px; font-size: 14px;">
+‏                    <i class="fas fa-info-circle"></i> انسخ هذا الكود واطبعه في تطبيق الهاتف
+‏                </p>
+‏            </div>
+‏        </div>
+        
+‏        <!-- LTT -->
+‏        <div class="section">
+‏            <h2><i class="fas fa-credit-card"></i> LTT</h2>
+            
+‏            <div class="info-group">
+‏                <div class="info-label">
+‏                    <i class="fas fa-phone"></i> رقم الهاتف:
+‏                </div>
+‏                <div class="copy-box">
+                    0957997054
+‏                    <button class="copy-btn" onclick="copyText(this)"><i class="far fa-copy"></i> نسخ</button>
+‏                </div>
+‏            </div>
+            
+‏            <div class="info-group">
+‏                <div class="info-label">
+‏                    <i class="fas fa-link"></i> رابط تحويل الرصيد:
+‏                </div>
+‏                <div class="copy-box">
+‏                    https://my.ltt.ly/#/login
+‏                    <button class="copy-btn" onclick="copyText(this)"><i class="far fa-copy"></i> نسخ</button>
+‏                </div>
+‏            </div>
+‏        </div>
+        
+        <!-- بينانس -->
+‏        <div class="section">
+‏            <h2><i class="fab fa-bitcoin"></i> بينانس</h2>
+            
+‏            <div class="info-group">
+‏                <div class="info-label">
+‏                    <i class="fas fa-id-card"></i> معرف الحساب:
+‏                </div>
+‏                <div class="copy-box">
+                    835069488
+‏                    <button class="copy-btn" onclick="copyText(this)"><i class="far fa-copy"></i> نسخ</button>
+‏                </div>
+‏            </div>
+‏        </div>
+        
+        <!-- بايبيت -->
+‏        <div class="section">
+‏            <h2><i class="fas fa-rocket"></i> بايبيت</h2>
+            
+‏            <div class="info-group">
+‏                <div class="info-label">
+‏                    <i class="fas fa-id-card"></i> معرف الحساب:
+‏                </div>
+‏                <div class="copy-box">
+                    471832982
+‏                    <button class="copy-btn" onclick="copyText(this)"><i class="far fa-copy"></i> نسخ</button>
+‏                </div>
+‏            </div>
+‏        </div>
+        
+‏        <!-- USDT (BEP-20) -->
+‏        <div class="section">
+‏            <h2><i class="fas fa-link"></i> USDT (BEP-20)</h2>
+            
+‏            <div class="info-group">
+‏                <div class="info-label">
+‏                    <i class="fas fa-wallet"></i> عنوان المحفظة:
+‏                </div>
+‏                <div class="copy-box">
+‏                    <div class="wallet-address">
+‏                        <i class="fas fa-wallet wallet-icon"></i>
+‏                        <span>0xc0eee31ed3e8cef0757d965e75b079f7ed816bec</span>
+‏                    </div>
+‏                    <button class="copy-btn" onclick="copyText(this)"><i class="far fa-copy"></i> نسخ</button>
+‏                </div>
+‏            </div>
+            
+‏            <div class="note">
+‏                <i class="fas fa-network-wired"></i> الشبكة: Binance Smart Chain (BEP-20) - إيداع +10 USDT
+‏            </div>
+‏        </div>
+        
+‏        <!-- USDT (Arbitrum) -->
+‏        <div class="section">
+‏            <h2><i class="fas fa-bolt"></i> USDT (Arbitrum)</h2>
+            
+‏            <div class="info-group">
+‏                <div class="info-label">
+‏                    <i class="fas fa-wallet"></i> عنوان المحفظة:
+‏                </div>
+‏                <div class="copy-box">
+‏                    <div class="wallet-address">
+‏                        <i class="fas fa-wallet wallet-icon"></i>
+‏                        <span>0xc0eee31ed3e8cef0757d965e75b079f7ed816bec</span>
+‏                    </div>
+‏                    <button class="copy-btn" onclick="copyText(this)"><i class="far fa-copy"></i> نسخ</button>
+‏                </div>
+‏            </div>
+            
+‏            <div class="note">
+‏                <i class="fas fa-network-wired"></i> الشبكة: Arbitrum One - سحب -10 USDT
+‏            </div>
+‏        </div>
+        
+        <!-- ملاحظات هامة -->
+‏        <div class="section">
+‏            <h2><i class="fas fa-exclamation-triangle"></i> ملاحظات هامة</h2>
+            
+‏            <div class="note warning">
+‏                <i class="fas fa-check-circle"></i> تأكد من صحة المعلومات قبل إجراء أي تحويل
+‏            </div>
+            
+‏            <div class="note warning">
+‏                <i class="fas fa-check-circle"></i> الحدود والرسوم قد تتغير حسب الشبكة المستخدمة
+‏            </div>
+            
+‏            <div class="note warning">
+‏                <i class="fas fa-check-circle"></i> تحقق دائمًا من عنوان المحفظة قبل الإرسال
+‏            </div>
+            
+‏            <div class="note">
+‏                <i class="fas fa-info-circle"></i> ليبيانا: يتم ضرب المبلغ المدخل × 1000 تلقائيًا
+‏            </div>
+            
+‏            <div class="note">
+‏                <i class="fas fa-info-circle"></i> المدار: أدخل المبلغ كما هو بدون تحويل
+‏            </div>
+‏        </div>
+        
+‏        <footer>
+‏            <p>جميع الحقوق محفوظة &copy; 2025</p>
+‏            <p style="margin-top: 8px;">
+‏                <a href="https://t.me/II99l9" class="dev-link" target="_blank">
+‏                    <i class="fab fa-telegram"></i> تواصل مع المطور: @II99l9
+‏                </a>
+‏            </p>
+‏        </footer>
+‏    </div>
+
+‏    <script>
+        // نسخ النص مع رسالة تأكيد
+‏        function copyText(button) {
+‏            const box = button.parentElement;
+‏            let text = '';
+            
+            // الحصول على النص من عناصر العنوان
+‏            if (box.querySelector('.wallet-address')) {
+‏                text = box.querySelector('.wallet-address span').textContent.trim();
+‏            } else {
+‏                text = box.textContent.replace('نسخ', '').trim();
+            }
+            
+‏            navigator.clipboard.writeText(text).then(() => {
+‏                const originalText = button.innerHTML;
+‏                button.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
+‏                setTimeout(() => {
+‏                    button.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+        
+        // تشغيل الفيديو عند النقر على زر التشغيل
+‏        document.querySelector('.play-btn').addEventListener('click', function() {
+‏            const video = document.querySelector('.video-container video');
+‏            video.play();
+‏            this.parentElement.style.opacity = 0;
+        });
+        
+        // إظهار زر التشغيل عند توقف الفيديو
+‏        document.querySelector('.video-container video').addEventListener('pause', function() {
+‏            document.querySelector('.video-overlay').style.opacity = 1;
+        });
+        
+        // إنشاء كود ليبيا للموبايل
+‏        function generateLibyanaCode() {
+‏            const amount = document.getElementById('libyana-amount').value;
+‏            const phone = '0928102731';
+            
+‏            if (!amount || amount > 50 || amount < 1) {
+‏                alert('⚠ الرجاء إدخال مبلغ صحيح بين 1 و 50 دينار ليبي');
+‏                return;
+            }
+            
+‏            const convertedAmount = amount * 1000;
+‏            const ussdCode = `*122*${phone}*${convertedAmount}*1#`;
+            
+‏            document.getElementById('libyana-code').textContent = ussdCode;
+‏            document.getElementById('libyana-result').style.display = 'block';
+            
+            // التمرير إلى نتيجة الكود
+‏            document.getElementById('libyana-result').scrollIntoView({ 
+‏                behavior: 'smooth' 
+            });
+        }
+        
+        // إنشاء كود المدار
+‏        function generateAlmadarCode() {
+‏            const amount = document.getElementById('almadar-amount').value;
+‏            const phone = '0934765130';
+            
+‏            if (!amount || amount > 20 || amount < 1) {
+‏                alert('⚠ الرجاء إدخال مبلغ صحيح بين 1 و 20 دينار ليبي');
+‏                return;
+            }
+            
+‏            const ussdCode = `*140*4*20*${phone}*1#`;
+            
+‏            document.getElementById('almadar-code').textContent = ussdCode;
+‏            document.getElementById('almadar-result').style.display = 'block';
+            
+            // التمرير إلى نتيجة الكود
+‏            document.getElementById('almadar-result').scrollIntoView({ 
+‏                behavior: 'smooth' 
+            });
+        }
+‏    </script>
+‏</body>
+‏</html>
